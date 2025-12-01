@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Dashboard Project</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="main-title">JavaScript API Dashboard</h1>
+    <div class="grid-container">
+      <section class="grid-item" id="dog-api">
+        <h2>🐶 Random Dog</h2>
+        <div class="output" id="dog-output"></div>
+        <button onclick="getDogImage()">Get Dog</button>
+      </section>
+
+      <section class="grid-item" id="cat-api">
+        <h2>🐱 Random Cat</h2>
+        <div class="output" id="cat-output"></div>
+        <button onclick="getCatImage()">Get Cat</button>
+      </section>
+
+      <section class="grid-item" id="weather-api">
+        <h2>☀️ Weather Info</h2>
+        <div class="output" id="weather-output"></div>
+        <button onclick="getWeather()">Get Weather</button>
+      </section>
+
+      <section class="grid-item" id="currency-api">
+        <h2>💱 Currency Rates</h2>
+        <div class="output" id="currency-output"></div>
+        <button onclick="getExchangeRates()">Get Rates</button>
+      </section>
+
+      <section class="grid-item" id="movies-api">
+        <h2>🎮 Trending Movies</h2>
+        <div class="output" id="movies-output"></div>
+        <button onclick="getMovies()">Get Movies</button>
+      </section>
+
+      <section class="grid-item" id="github-api">
+        <h2>🧑‍💻 GitHub User</h2>
+        <div class="output" id="github-output"></div>
+        <button onclick="getGitHubUser()">Get User</button>
+      </section>
+
+      <section class="grid-item" id="joke-api">
+        <h2>🤣 Random Joke</h2>
+        <div class="output" id="joke-output"></div>
+        <button onclick="getJoke()">Get Joke</button>
+      </section>
+
+      <section class="grid-item" id="public-api">
+        <h2>📚 Public APIs</h2>
+        <div class="output" id="publicapi-output"></div>
+        <button onclick="getPublicApiInfo()">Show One</button>
+      </section>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

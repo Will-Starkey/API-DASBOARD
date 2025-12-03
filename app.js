@@ -201,19 +201,36 @@ async function getPublicApiInfo() {
 
     // Fetch public API information from the GitHub repository
     const response = await fetch(
-      "https://api.github.com/repos/public-apis/public-apis"
+      "https://api.aviationstack.com/v1/airplanes?access_key=fb4209850d7fde97d679f1121a427152&limit=100"
     );
+
     if (!response.ok) {
-      throw new Error("Failed to fetch public API information");
+      throw new Error("Failed to fetch aviation information");
     }
 
     const data = await response.json();
 
-    // Display repository information
-    publicApiOutput.innerHTML = `Repository: ${data.full_name}, Description: ${data.description}, Stars: ${data.stargazers_count}`;
+    // Display aviation API information
+    const pagination = data.pagination;
+    const airplanes = data.data;
+
+    // Pick a random airplane
+    const randomIndex = Math.floor(Math.random() * airplanes.length);
+    const airplane = airplanes[randomIndex];
+
+    // Display airplane details
+    publicApiOutput.innerHTML = `
+      <p>Data Source: AviationStack API</p>
+      <p><strong>Random Airplane Selected:</strong></p>
+      <p><strong>Model:</strong> ${airplane.model_name} (${airplane.model_code})</p>
+      <p><strong>Registration Number:</strong> ${airplane.registration_number}</p>
+      <p><strong>Airline:</strong> ${airplane.plane_owner}</p>
+      <p><strong>Status:</strong> ${airplane.plane_status}</p>
+      <p><strong>Age:</strong> ${airplane.plane_age} years</p>
+    `;
   } catch (error) {
     console.error(error);
     publicApiOutput.textContent =
-      "Failed to load public API information. Please try again.";
+      "Failed to load public Aviation information. Please try again.";
   }
 }
